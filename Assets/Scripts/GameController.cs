@@ -74,10 +74,10 @@ public class GameController : MonoBehaviour
             allCubesRB.isKinematic = false;//
 
             SpawnPosition(); //Запускаем спавн
-            moveCameraChangeBg(); // Вращаем камеру именяем фон
+            moveCameraChangeBg(); // Вращаем камеру и меняем фон
         }
 
-        if(allCubesRB.velocity.magnitude > 0.1f && !isLose){ //Если башня пошатнулась игрок проиграл
+        if(allCubesRB.velocity.magnitude > 0.1f && !isLose){ //Если башня пошатнулась -  игрок проиграл
             Destroy(cubeToPlace.gameObject);
             isLose = true;
             StopCoroutine(showCubePlace);

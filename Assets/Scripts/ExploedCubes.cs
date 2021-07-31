@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExploedCubes : MonoBehaviour
 {
-    public GameObject restartButton;
+    public GameObject restartButton, explosion;
     public float explosionForce = 70f;
     public float explosionRadius = 5f;
     private bool _collisionSet;
@@ -25,6 +25,8 @@ public class ExploedCubes : MonoBehaviour
             // Camera.main.transform.localPosition -= new Vector3(0, 0, 3f);
 
             Camera.main.gameObject.AddComponent<CameraShake>();
+
+            Instantiate(explosion, new Vector3(collision.contacts[0].point.x, collision.contacts[0].point.y, collision.contacts[0].point.z), Quaternion.identity);
 
             // Destroy(collision.gameObject);
             _collisionSet = true;
